@@ -37,3 +37,18 @@ export type Vehicle = Prisma.VehicleModel
  * 
  */
 export type Driver = Prisma.DriverModel
+/**
+ * Model Customer
+ * 
+ */
+export type Customer = Prisma.CustomerModel
+/**
+ * Model Trip
+ * 
+ */
+export type Trip = Prisma.TripModel
+/**
+ * Model TripExpense
+ * 
+ */
+export type TripExpense = Prisma.TripExpenseModel

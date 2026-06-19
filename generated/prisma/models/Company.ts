@@ -201,6 +201,9 @@ export type CompanyWhereInput = {
   users?: Prisma.UserListRelationFilter
   vehicles?: Prisma.VehicleListRelationFilter
   drivers?: Prisma.DriverListRelationFilter
+  customers?: Prisma.CustomerListRelationFilter
+  trips?: Prisma.TripListRelationFilter
+  tripExpenses?: Prisma.TripExpenseListRelationFilter
 }
 
 export type CompanyOrderByWithRelationInput = {
@@ -214,6 +217,9 @@ export type CompanyOrderByWithRelationInput = {
   users?: Prisma.UserOrderByRelationAggregateInput
   vehicles?: Prisma.VehicleOrderByRelationAggregateInput
   drivers?: Prisma.DriverOrderByRelationAggregateInput
+  customers?: Prisma.CustomerOrderByRelationAggregateInput
+  trips?: Prisma.TripOrderByRelationAggregateInput
+  tripExpenses?: Prisma.TripExpenseOrderByRelationAggregateInput
 }
 
 export type CompanyWhereUniqueInput = Prisma.AtLeast<{
@@ -230,6 +236,9 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   users?: Prisma.UserListRelationFilter
   vehicles?: Prisma.VehicleListRelationFilter
   drivers?: Prisma.DriverListRelationFilter
+  customers?: Prisma.CustomerListRelationFilter
+  trips?: Prisma.TripListRelationFilter
+  tripExpenses?: Prisma.TripExpenseListRelationFilter
 }, "id">
 
 export type CompanyOrderByWithAggregationInput = {
@@ -269,6 +278,9 @@ export type CompanyCreateInput = {
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateInput = {
@@ -282,6 +294,9 @@ export type CompanyUncheckedCreateInput = {
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUpdateInput = {
@@ -295,6 +310,9 @@ export type CompanyUpdateInput = {
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateInput = {
@@ -308,6 +326,9 @@ export type CompanyUncheckedUpdateInput = {
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateManyInput = {
@@ -429,6 +450,48 @@ export type CompanyUpdateOneRequiredWithoutDriversNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutDriversInput, Prisma.CompanyUpdateWithoutDriversInput>, Prisma.CompanyUncheckedUpdateWithoutDriversInput>
 }
 
+export type CompanyCreateNestedOneWithoutCustomersInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutCustomersInput, Prisma.CompanyUncheckedCreateWithoutCustomersInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutCustomersInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutCustomersNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutCustomersInput, Prisma.CompanyUncheckedCreateWithoutCustomersInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutCustomersInput
+  upsert?: Prisma.CompanyUpsertWithoutCustomersInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutCustomersInput, Prisma.CompanyUpdateWithoutCustomersInput>, Prisma.CompanyUncheckedUpdateWithoutCustomersInput>
+}
+
+export type CompanyCreateNestedOneWithoutTripsInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutTripsInput, Prisma.CompanyUncheckedCreateWithoutTripsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutTripsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutTripsNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutTripsInput, Prisma.CompanyUncheckedCreateWithoutTripsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutTripsInput
+  upsert?: Prisma.CompanyUpsertWithoutTripsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutTripsInput, Prisma.CompanyUpdateWithoutTripsInput>, Prisma.CompanyUncheckedUpdateWithoutTripsInput>
+}
+
+export type CompanyCreateNestedOneWithoutTripExpensesInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutTripExpensesInput, Prisma.CompanyUncheckedCreateWithoutTripExpensesInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutTripExpensesInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutTripExpensesNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutTripExpensesInput, Prisma.CompanyUncheckedCreateWithoutTripExpensesInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutTripExpensesInput
+  upsert?: Prisma.CompanyUpsertWithoutTripExpensesInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutTripExpensesInput, Prisma.CompanyUpdateWithoutTripExpensesInput>, Prisma.CompanyUncheckedUpdateWithoutTripExpensesInput>
+}
+
 export type CompanyCreateWithoutUsersInput = {
   id?: string
   name: string
@@ -439,6 +502,9 @@ export type CompanyCreateWithoutUsersInput = {
   updatedAt?: Date | string
   vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutUsersInput = {
@@ -451,6 +517,9 @@ export type CompanyUncheckedCreateWithoutUsersInput = {
   updatedAt?: Date | string
   vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutUsersInput = {
@@ -479,6 +548,9 @@ export type CompanyUpdateWithoutUsersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutUsersInput = {
@@ -491,6 +563,9 @@ export type CompanyUncheckedUpdateWithoutUsersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutVehiclesInput = {
@@ -503,6 +578,9 @@ export type CompanyCreateWithoutVehiclesInput = {
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutVehiclesInput = {
@@ -515,6 +593,9 @@ export type CompanyUncheckedCreateWithoutVehiclesInput = {
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutVehiclesInput = {
@@ -543,6 +624,9 @@ export type CompanyUpdateWithoutVehiclesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutVehiclesInput = {
@@ -555,6 +639,9 @@ export type CompanyUncheckedUpdateWithoutVehiclesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutDriversInput = {
@@ -567,6 +654,9 @@ export type CompanyCreateWithoutDriversInput = {
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutDriversInput = {
@@ -579,6 +669,9 @@ export type CompanyUncheckedCreateWithoutDriversInput = {
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutDriversInput = {
@@ -607,6 +700,9 @@ export type CompanyUpdateWithoutDriversInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutDriversInput = {
@@ -619,6 +715,237 @@ export type CompanyUncheckedUpdateWithoutDriversInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutCustomersInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutCustomersInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutCustomersInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutCustomersInput, Prisma.CompanyUncheckedCreateWithoutCustomersInput>
+}
+
+export type CompanyUpsertWithoutCustomersInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutCustomersInput, Prisma.CompanyUncheckedUpdateWithoutCustomersInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutCustomersInput, Prisma.CompanyUncheckedCreateWithoutCustomersInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutCustomersInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutCustomersInput, Prisma.CompanyUncheckedUpdateWithoutCustomersInput>
+}
+
+export type CompanyUpdateWithoutCustomersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutCustomersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutTripsInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutTripsInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  tripExpenses?: Prisma.TripExpenseUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutTripsInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutTripsInput, Prisma.CompanyUncheckedCreateWithoutTripsInput>
+}
+
+export type CompanyUpsertWithoutTripsInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutTripsInput, Prisma.CompanyUncheckedUpdateWithoutTripsInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutTripsInput, Prisma.CompanyUncheckedCreateWithoutTripsInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutTripsInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutTripsInput, Prisma.CompanyUncheckedUpdateWithoutTripsInput>
+}
+
+export type CompanyUpdateWithoutTripsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutTripsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  tripExpenses?: Prisma.TripExpenseUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutTripExpensesInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutTripExpensesInput = {
+  id?: string
+  name: string
+  phone: string
+  address?: string | null
+  gstNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutCompanyInput
+  drivers?: Prisma.DriverUncheckedCreateNestedManyWithoutCompanyInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutCompanyInput
+  trips?: Prisma.TripUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutTripExpensesInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutTripExpensesInput, Prisma.CompanyUncheckedCreateWithoutTripExpensesInput>
+}
+
+export type CompanyUpsertWithoutTripExpensesInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutTripExpensesInput, Prisma.CompanyUncheckedUpdateWithoutTripExpensesInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutTripExpensesInput, Prisma.CompanyUncheckedCreateWithoutTripExpensesInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutTripExpensesInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutTripExpensesInput, Prisma.CompanyUncheckedUpdateWithoutTripExpensesInput>
+}
+
+export type CompanyUpdateWithoutTripExpensesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutTripExpensesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gstNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutCompanyNestedInput
+  drivers?: Prisma.DriverUncheckedUpdateManyWithoutCompanyNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  trips?: Prisma.TripUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 
@@ -630,12 +957,18 @@ export type CompanyCountOutputType = {
   users: number
   vehicles: number
   drivers: number
+  customers: number
+  trips: number
+  tripExpenses: number
 }
 
 export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | CompanyCountOutputTypeCountUsersArgs
   vehicles?: boolean | CompanyCountOutputTypeCountVehiclesArgs
   drivers?: boolean | CompanyCountOutputTypeCountDriversArgs
+  customers?: boolean | CompanyCountOutputTypeCountCustomersArgs
+  trips?: boolean | CompanyCountOutputTypeCountTripsArgs
+  tripExpenses?: boolean | CompanyCountOutputTypeCountTripExpensesArgs
 }
 
 /**
@@ -669,6 +1002,27 @@ export type CompanyCountOutputTypeCountDriversArgs<ExtArgs extends runtime.Types
   where?: Prisma.DriverWhereInput
 }
 
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountCustomersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CustomerWhereInput
+}
+
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountTripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TripWhereInput
+}
+
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountTripExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TripExpenseWhereInput
+}
+
 
 export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -681,6 +1035,9 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   users?: boolean | Prisma.Company$usersArgs<ExtArgs>
   vehicles?: boolean | Prisma.Company$vehiclesArgs<ExtArgs>
   drivers?: boolean | Prisma.Company$driversArgs<ExtArgs>
+  customers?: boolean | Prisma.Company$customersArgs<ExtArgs>
+  trips?: boolean | Prisma.Company$tripsArgs<ExtArgs>
+  tripExpenses?: boolean | Prisma.Company$tripExpensesArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["company"]>
 
@@ -719,6 +1076,9 @@ export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   users?: boolean | Prisma.Company$usersArgs<ExtArgs>
   vehicles?: boolean | Prisma.Company$vehiclesArgs<ExtArgs>
   drivers?: boolean | Prisma.Company$driversArgs<ExtArgs>
+  customers?: boolean | Prisma.Company$customersArgs<ExtArgs>
+  trips?: boolean | Prisma.Company$tripsArgs<ExtArgs>
+  tripExpenses?: boolean | Prisma.Company$tripExpensesArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CompanyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -730,6 +1090,9 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     users: Prisma.$UserPayload<ExtArgs>[]
     vehicles: Prisma.$VehiclePayload<ExtArgs>[]
     drivers: Prisma.$DriverPayload<ExtArgs>[]
+    customers: Prisma.$CustomerPayload<ExtArgs>[]
+    trips: Prisma.$TripPayload<ExtArgs>[]
+    tripExpenses: Prisma.$TripExpensePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1136,6 +1499,9 @@ export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends runtime.
   users<T extends Prisma.Company$usersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$usersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   vehicles<T extends Prisma.Company$vehiclesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$vehiclesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   drivers<T extends Prisma.Company$driversArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$driversArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DriverPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  customers<T extends Prisma.Company$customersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$customersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trips<T extends Prisma.Company$tripsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$tripsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  tripExpenses<T extends Prisma.Company$tripExpensesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$tripExpensesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1634,6 +2000,78 @@ export type Company$driversArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.DriverScalarFieldEnum | Prisma.DriverScalarFieldEnum[]
+}
+
+/**
+ * Company.customers
+ */
+export type Company$customersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Customer
+   */
+  select?: Prisma.CustomerSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Customer
+   */
+  omit?: Prisma.CustomerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CustomerInclude<ExtArgs> | null
+  where?: Prisma.CustomerWhereInput
+  orderBy?: Prisma.CustomerOrderByWithRelationInput | Prisma.CustomerOrderByWithRelationInput[]
+  cursor?: Prisma.CustomerWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CustomerScalarFieldEnum | Prisma.CustomerScalarFieldEnum[]
+}
+
+/**
+ * Company.trips
+ */
+export type Company$tripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Trip
+   */
+  select?: Prisma.TripSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Trip
+   */
+  omit?: Prisma.TripOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TripInclude<ExtArgs> | null
+  where?: Prisma.TripWhereInput
+  orderBy?: Prisma.TripOrderByWithRelationInput | Prisma.TripOrderByWithRelationInput[]
+  cursor?: Prisma.TripWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TripScalarFieldEnum | Prisma.TripScalarFieldEnum[]
+}
+
+/**
+ * Company.tripExpenses
+ */
+export type Company$tripExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TripExpense
+   */
+  select?: Prisma.TripExpenseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TripExpense
+   */
+  omit?: Prisma.TripExpenseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TripExpenseInclude<ExtArgs> | null
+  where?: Prisma.TripExpenseWhereInput
+  orderBy?: Prisma.TripExpenseOrderByWithRelationInput | Prisma.TripExpenseOrderByWithRelationInput[]
+  cursor?: Prisma.TripExpenseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TripExpenseScalarFieldEnum | Prisma.TripExpenseScalarFieldEnum[]
 }
 
 /**

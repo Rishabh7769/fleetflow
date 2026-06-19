@@ -54,7 +54,10 @@ export const ModelName = {
   Company: 'Company',
   User: 'User',
   Vehicle: 'Vehicle',
-  Driver: 'Driver'
+  Driver: 'Driver',
+  Customer: 'Customer',
+  Trip: 'Trip',
+  TripExpense: 'TripExpense'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -146,6 +149,68 @@ export const DriverScalarFieldEnum = {
 } as const
 
 export type DriverScalarFieldEnum = (typeof DriverScalarFieldEnum)[keyof typeof DriverScalarFieldEnum]
+
+
+export const CustomerScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  companyName: 'companyName',
+  phone: 'phone',
+  email: 'email',
+  gstNumber: 'gstNumber',
+  address: 'address',
+  companyId: 'companyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+export const TripScalarFieldEnum = {
+  id: 'id',
+  tripNumber: 'tripNumber',
+  customerId: 'customerId',
+  driverId: 'driverId',
+  vehicleId: 'vehicleId',
+  pickupAddress: 'pickupAddress',
+  pickupCity: 'pickupCity',
+  pickupState: 'pickupState',
+  pickupPincode: 'pickupPincode',
+  deliveryAddress: 'deliveryAddress',
+  deliveryCity: 'deliveryCity',
+  deliveryState: 'deliveryState',
+  deliveryPincode: 'deliveryPincode',
+  freightAmount: 'freightAmount',
+  advanceReceived: 'advanceReceived',
+  status: 'status',
+  startDate: 'startDate',
+  deliveryDate: 'deliveryDate',
+  expectedDeliveryDate: 'expectedDeliveryDate',
+  remarks: 'remarks',
+  companyId: 'companyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  estimatedDistance: 'estimatedDistance',
+  actualDistance: 'actualDistance'
+} as const
+
+export type TripScalarFieldEnum = (typeof TripScalarFieldEnum)[keyof typeof TripScalarFieldEnum]
+
+
+export const TripExpenseScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  tripId: 'tripId',
+  type: 'type',
+  amount: 'amount',
+  title: 'title',
+  receiptUrl: 'receiptUrl',
+  expenseDate: 'expenseDate',
+  createdAt: 'createdAt'
+} as const
+
+export type TripExpenseScalarFieldEnum = (typeof TripExpenseScalarFieldEnum)[keyof typeof TripExpenseScalarFieldEnum]
 
 
 export const SortOrder = {

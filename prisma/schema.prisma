@@ -17,6 +17,9 @@ model Company {
   users User[]
   vehicles Vehicle[]
   drivers Driver[]
+  customers Customer[]
+  trips Trip[]
+  tripExpenses TripExpense[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -102,6 +105,7 @@ model Vehicle {
   createdAt DateTime @default(now())
 
   updatedAt DateTime @updatedAt
+  trips Trip[] @relation("VehicleTrips")
 }
 model Driver {
   id              String   @id @default(cuid())
@@ -127,10 +131,122 @@ model Driver {
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  trips Trip[] @relation("DriverTrips")
 }
 
 enum DriverStatus {
   ACTIVE
   ON_LEAVE
   INACTIVE
+}
+model Customer {
+  id          String   @id @default(cuid())
+
+  name        String
+  companyName String?
+
+  phone       String
+  email       String?
+
+  gstNumber   String?
+
+  address     String?
+
+  companyId   String
+  company     Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  trips Trip[] @relation("CustomerTrips")
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+model Trip {
+  id String @id @default(cuid())
+
+  tripNumber String @unique
+
+  customerId String
+  customer Customer @relation("CustomerTrips", fields:[customerId], references:[id])
+
+  driverId String
+  driver Driver @relation("DriverTrips", fields: [driverId], references: [id])
+
+  vehicleId String
+  vehicle Vehicle @relation("VehicleTrips", fields: [vehicleId], references: [id])
+
+ pickupAddress String
+
+pickupCity String
+
+pickupState String
+
+pickupPincode String?
+
+deliveryAddress String
+
+deliveryCity String
+
+deliveryState String
+
+deliveryPincode String?
+
+  freightAmount Decimal
+  advanceReceived Decimal @default(0)
+
+  status TripStatus @default(CREATED)
+
+  startDate DateTime?
+  deliveryDate DateTime?
+  expectedDeliveryDate DateTime?
+
+  remarks String?
+
+  expenses TripExpense[]
+
+  companyId String
+  company Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  estimatedDistance Float?
+
+actualDistance Float?
+}
+enum TripStatus{
+  CREATED
+  ASSIGNED
+  STARTED
+  IN_TRANSIT
+  DELIVERED
+  COMPLETED
+  CANCELLED
+}
+model TripExpense{
+  id String @id @default(cuid())
+  companyId String
+
+company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  tripId String
+  trip Trip @relation(fields:[tripId], references:[id], onDelete:Cascade)
+
+  type ExpenseType
+
+  amount Decimal
+
+  title String?
+  receiptUrl String?
+
+  expenseDate DateTime
+
+createdAt DateTime @default(now())
+}
+enum ExpenseType{
+  FUEL
+  TOLL
+  DRIVER
+  REPAIR
+  FOOD
+  PARKING
+  OTHER
 }

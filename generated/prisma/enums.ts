@@ -47,3 +47,29 @@ export const DriverStatus = {
 } as const
 
 export type DriverStatus = (typeof DriverStatus)[keyof typeof DriverStatus]
+
+
+export const TripStatus = {
+  CREATED: 'CREATED',
+  ASSIGNED: 'ASSIGNED',
+  STARTED: 'STARTED',
+  IN_TRANSIT: 'IN_TRANSIT',
+  DELIVERED: 'DELIVERED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type TripStatus = (typeof TripStatus)[keyof typeof TripStatus]
+
+
+export const ExpenseType = {
+  FUEL: 'FUEL',
+  TOLL: 'TOLL',
+  DRIVER: 'DRIVER',
+  REPAIR: 'REPAIR',
+  FOOD: 'FOOD',
+  PARKING: 'PARKING',
+  OTHER: 'OTHER'
+} as const
+
+export type ExpenseType = (typeof ExpenseType)[keyof typeof ExpenseType]
