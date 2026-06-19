@@ -32,17 +32,19 @@ export async function POST(request: Request) {
       }
     );
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          error instanceof Error
-            ? error.message
-            : "Something went wrong",
-      },
-      {
-        status: 500,
-      }
-    );
+  console.error("Signup Error:", error);
+
+  return NextResponse.json(
+    {
+      success: false,
+      message:
+        error instanceof Error
+          ? error.message
+          : "Something went wrong",
+    },
+    {
+      status: 500,
+    }
+  );
   }
 }
