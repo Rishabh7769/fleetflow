@@ -38,3 +38,12 @@ export const FuelType = {
 } as const
 
 export type FuelType = (typeof FuelType)[keyof typeof FuelType]
+
+
+export const DriverStatus = {
+  ACTIVE: 'ACTIVE',
+  ON_LEAVE: 'ON_LEAVE',
+  INACTIVE: 'INACTIVE'
+} as const
+
+export type DriverStatus = (typeof DriverStatus)[keyof typeof DriverStatus]

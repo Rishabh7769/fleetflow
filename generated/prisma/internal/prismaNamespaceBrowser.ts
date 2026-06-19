@@ -53,7 +53,8 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Company: 'Company',
   User: 'User',
-  Vehicle: 'Vehicle'
+  Vehicle: 'Vehicle',
+  Driver: 'Driver'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -125,6 +126,26 @@ export const VehicleScalarFieldEnum = {
 } as const
 
 export type VehicleScalarFieldEnum = (typeof VehicleScalarFieldEnum)[keyof typeof VehicleScalarFieldEnum]
+
+
+export const DriverScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  licenseNumber: 'licenseNumber',
+  licenseExpiry: 'licenseExpiry',
+  address: 'address',
+  emergencyName: 'emergencyName',
+  emergencyPhone: 'emergencyPhone',
+  bloodGroup: 'bloodGroup',
+  status: 'status',
+  companyId: 'companyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DriverScalarFieldEnum = (typeof DriverScalarFieldEnum)[keyof typeof DriverScalarFieldEnum]
 
 
 export const SortOrder = {
