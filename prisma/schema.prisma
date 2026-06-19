@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+datasource db {
+  provider = "postgresql"
+}
+
+model Company {
+  id        String   @id @default(cuid())
+
+  name      String
+  phone     String
+  address   String?
+  gstNumber String?
+
+  users User[]
+  vehicles Vehicle[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+enum UserRole {
+  OWNER
+  MANAGER
+  DISPATCHER
+  DRIVER
+}
+enum VehicleStatus {
+  AVAILABLE
+  ON_TRIP
+  MAINTENANCE
+  OUT_OF_SERVICE
+}
+
+enum FuelType {
+  DIESEL
+  PETROL
+  CNG
+  LNG
+  ELECTRIC
+}
+model User {
+  id         String   @id @default(cuid())
+
+  name       String
+  email      String   @unique
+  password   String
+
+  role       UserRole @default(OWNER)
+
+  companyId  String
+  company    Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+model Vehicle {
+  id String @id @default(cuid())
+
+  registrationNumber String @unique
+
+  manufacturer String
+
+  model String
+
+  year Int
+
+  vehicleType String
+
+  fuelType FuelType
+
+  capacity Float
+
+  currentOdometer Int @default(0)
+
+  engineNumber String?
+
+  chassisNumber String?
+
+  vin String?
+
+  insuranceExpiry DateTime?
+
+  permitExpiry DateTime?
+
+  fitnessExpiry DateTime?
+
+  pucExpiry DateTime?
+
+  averageMileage Float?
+
+  gpsDeviceId String?
+
+  status VehicleStatus @default(AVAILABLE)
+
+  companyId String
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+}
