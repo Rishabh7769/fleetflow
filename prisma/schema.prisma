@@ -6,7 +6,7 @@ datasource db {
   provider = "postgresql"
 }
 
-model Organization {
+model Company {
   id        String   @id @default(cuid())
 
   name      String
