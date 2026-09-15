@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuthUser } from "@/lib/auth";
+import { authorize } from "@/lib/authorize";
+import { PERMISSIONS } from "@/lib/permissions";
 import { createTripSchema } from "@/validators/trip.validator";
 import { createTrip, getTrips } from "@/services/trip.service";
 
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthUser(request);
+    authorize(
+  user.role,
+  PERMISSIONS.MANAGE_TRIPS
+);
 
     const body = await request.json();
 

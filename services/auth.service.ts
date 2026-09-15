@@ -58,3 +58,43 @@ export async function signup(data: SignupInput) {
     },
   };
 }
+export async function login(email: string, password: string) {
+  console.log("EMAIL RECEIVED:", email);
+  console.log("PASSWORD RECEIVED:", password);
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  console.log("USER FOUND:", user);
+
+  if (!user) {
+    throw new Error("Invalid credentials");
+  }
+
+  const valid = await bcrypt.compare(password, user.password);
+
+  console.log("PASSWORD MATCH:", valid);
+
+  if (!valid) {
+    throw new Error("Invalid credentials");
+  }
+
+  const token = generateToken({
+    userId: user.id,
+    companyId: user.companyId,
+    role: user.role,
+  });
+
+  return {
+    token,
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
+  };
+}

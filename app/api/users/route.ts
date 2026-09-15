@@ -1,26 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuthUser } from "@/lib/auth";
-import { authorize } from "@/lib/authorize";
-import { PERMISSIONS } from "@/lib/permissions";
-import {
-  createVehicleSchema,
-} from "@/validators/vehicle.validator";
-import {
-  createVehicle,
-  getVehicles,
-} from "@/services/vehicle.service";
+import { createUserSchema } from "@/validators/user.validator";
+import { createUser, getUsers } from "@/services/user.service";
 
 export async function POST(request: NextRequest) {
   try {
     const user = getAuthUser(request);
-    authorize(
-  user.role,
-  PERMISSIONS.MANAGE_VEHICLES
-);
 
     const body = await request.json();
 
-    const validation = createVehicleSchema.safeParse(body);
+    const validation = createUserSchema.safeParse(body);
 
     if (!validation.success) {
       return NextResponse.json(
@@ -32,7 +21,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const vehicle = await createVehicle(
+    const created = await createUser(
       validation.data,
       user.companyId
     );
@@ -40,7 +29,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        data: vehicle,
+        data: created,
       },
       { status: 201 }
     );
@@ -61,16 +50,12 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const user = getAuthUser(request);
-    authorize(
-  user.role,
-  PERMISSIONS.MANAGE_VEHICLES
-);
 
-    const vehicles = await getVehicles(user.companyId);
+    const users = await getUsers(user.companyId);
 
     return NextResponse.json({
       success: true,
-      data: vehicles,
+      data: users,
     });
   } catch (error) {
     return NextResponse.json(
@@ -79,9 +64,9 @@ export async function GET(request: NextRequest) {
         message:
           error instanceof Error
             ? error.message
-            : "Unauthorized",
+            : "Something went wrong",
       },
-      { status: 401 }
+      { status: 500 }
     );
   }
 }

@@ -13,11 +13,42 @@ export async function createVehicle(
   });
 }
 
-export async function getVehicles(companyId: string) {
+export async function getVehicles(
+  companyId: string,
+  page = 1,
+  limit = 10,
+  search?: string
+) {
+  const skip = (page - 1) * limit;
+
   return prisma.vehicle.findMany({
     where: {
       companyId,
+      ...(search && {
+        OR: [
+          {
+            registrationNumber: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+          {
+            manufacturer: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+          {
+            model: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+        ],
+      }),
     },
+    skip,
+    take: limit,
     orderBy: {
       createdAt: "desc",
     },
